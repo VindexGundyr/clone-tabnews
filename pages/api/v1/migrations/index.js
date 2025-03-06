@@ -19,24 +19,24 @@ const defaultMigrationOptions = {
   migrationsTable: "pgmigrations",
 };
 
-export async function getHandler(request, response) {
+async function getHandler(request, response) {
  
-
   let dbClient;
 
   try {
     dbClient = await database.getNewClient();
 
-      const pendingMigrations = await migrationsRunner({...defaultMigrationOptions, dbClient});
+      const pendingMigrations = await migrationsRunner({
+        ...defaultMigrationOptions, 
+        dbClient,
+      });
       return response.status(200).json(pendingMigrations);
     } finally {
     await dbClient.end();
   }
 }
 
-export async function postHandler(request, response) {
- 
-
+async function postHandler(request, response) {
   let dbClient;
 
   try {

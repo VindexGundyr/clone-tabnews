@@ -23,7 +23,7 @@ export class ServiceError extends Error {
     super(message || "Serviço indisponível no momento.", {
       cause,
     });
-    this.name = "InternalServerError";
+    this.name = "ServiceError";
     this.action = "Verifique se o serviço está disponível.";
     this.statusCode = 503;
   }
@@ -41,11 +41,10 @@ export class ServiceError extends Error {
 
 export class MethodNotAllowedError extends Error {
   constructor() {
-    super("Método não permitido para este endpoint.", {
-      cause,
-    });
+    super("Método não permitido para este endpoint.");
     this.name = "MethodNotAllowedError";
-    this.action = "Verifique se o método HTTP enviado é válido para este endpoint.";
+    this.action =
+      "Verifique se o método HTTP enviado é válido para este endpoint.";
     this.statusCode = 405;
   }
 
