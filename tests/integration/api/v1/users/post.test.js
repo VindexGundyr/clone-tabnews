@@ -16,8 +16,8 @@ describe("POST /api/v1/users", () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: "vindexgundyr",
-          email: "contato@.dev",
+          username: "filipedeschamps",
+          email: "contato@curso.dev",
           password: "senha123",
         }),
       });
@@ -28,8 +28,8 @@ describe("POST /api/v1/users", () => {
 
       expect(responseBody).toEqual({
         id: responseBody.id,
-        username: "vindexgundyr",
-        email: "contato@.dev",
+        username: "filipedeschamps",
+        email: "contato@curso.dev",
         password: "senha123",
         created_at: responseBody.created_at,
         updated_at: responseBody.updated_at,
@@ -48,7 +48,7 @@ describe("POST /api/v1/users", () => {
         },
         body: JSON.stringify({
           username: "emailduplicado1",
-          email: "duplicado@.dev",
+          email: "duplicado@curso.dev",
           password: "senha123",
         }),
       });
@@ -62,7 +62,7 @@ describe("POST /api/v1/users", () => {
         },
         body: JSON.stringify({
           username: "emailduplicado2",
-          email: "Duplicado@.dev",
+          email: "Duplicado@curso.dev",
           password: "senha123",
         }),
       });
@@ -87,7 +87,7 @@ describe("POST /api/v1/users", () => {
         },
         body: JSON.stringify({
           username: "usernameduplicado",
-          email: "usernameduplicado1@.dev",
+          email: "usernameduplicado1@curso.dev",
           password: "senha123",
         }),
       });
@@ -101,7 +101,7 @@ describe("POST /api/v1/users", () => {
         },
         body: JSON.stringify({
           username: "UsernameDuplicado",
-          email: "usernameduplicado2@.dev",
+          email: "usernameduplicado2@curso.dev",
           password: "senha123",
         }),
       });
