@@ -8,7 +8,7 @@ beforeAll(async () => {
 });
 
 describe("GET /api/v1/users/[username]", () => {
-  describe("Anonymous user", () => {  
+  describe("Anonymous user", () => {
     test("With exact case match", async () => {
       const response1 = await fetch("http://localhost:3000/api/v1/users", {
         method: "GET",
@@ -24,7 +24,7 @@ describe("GET /api/v1/users/[username]", () => {
 
       expect(response1.status).toBe(201);
 
-      const response2 = await fetch("http://localhost:3000/api/v1/MesmoCase",);
+      const response2 = await fetch("http://localhost:3000/api/v1/MesmoCase");
 
       expect(response2.status).toBe(200);
 
@@ -58,7 +58,9 @@ describe("GET /api/v1/users/[username]", () => {
 
       expect(response1.status).toBe(201);
 
-      const response2 = await fetch("http://localhost:3000/api/v1/casediferente",);
+      const response2 = await fetch(
+        "http://localhost:3000/api/v1/casediferente",
+      );
 
       expect(response2.status).toBe(200);
 
@@ -78,8 +80,9 @@ describe("GET /api/v1/users/[username]", () => {
       expect(Date.parse(response2Body.updated_at)).not.toBeNaN();
     });
     test("With nonexistent username", async () => {
-
-      const response = await fetch("http://localhost:3000/api/v1/UsuarioInexistente",);
+      const response = await fetch(
+        "http://localhost:3000/api/v1/UsuarioInexistente",
+      );
 
       expect(response.status).toBe(404);
 
@@ -91,7 +94,6 @@ describe("GET /api/v1/users/[username]", () => {
         action: "Verifique se o username está digitado corretamente.",
         status_code: 404,
       });
-
     });
   });
 });
